@@ -1,8 +1,13 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/Joc2KsYq)
-# SE3309_2022_Assignment_4
+**Getting the Database Set Up**
+- Install MySQL
+- Launch MySQL on your local
+- Run Back-End\Data\ex2.sql on MySQL to create the tables
+- Run Back-End\Data\loadData.py to load data into the dataset
 
-This repository contains 2 folders to be used to manage your final project assignment. 
+**Starting the Web Interface**
 
-The APP folder is where you should commit all the code for your web application. 
-
-The DUMP folder should contain the database .dump file required to re-create your database and ALL of it's data. 
+- Upon first installation, navigate into the project folder and enter the following into the command line:
+  npm install
+- On the terminal, cd into the Back-End folder and enter the following into the command line:
+  node server.js
+- In the browser, enter http://localhost:3001 to get the web interface.
