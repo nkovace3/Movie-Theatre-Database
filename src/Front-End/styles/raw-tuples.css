@@ -1,0 +1,48 @@
+section {
+  text-align: center;
+  margin: 20px;
+}
+
+button {
+  font-family: 'Garamond', sans-serif;
+  margin: 5px;
+  padding: 10px;
+  font-size: 26px;
+  cursor: pointer;
+  color: #fff; /* White text */
+  background-color: #333; /* Dark grey background */
+  border: 1px solid #333; /* Dark grey border */
+  border-radius: 4px;
+}
+
+#result-container {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc; /* Light grey border */
+}
+
+#result-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  width: 300px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ddd; /* Light grey border */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* White background */
+}
+
+.card p {
+  margin: 5px 0;
+  color: #555; /* Dark grey text */
+}
+
+.card strong {
+  display: block;
+  font-weight: bold;
+}

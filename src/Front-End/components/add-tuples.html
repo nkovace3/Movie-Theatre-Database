@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/add-tuples.css">
+    <title>Add Tuples</title>
+</head>
+<body>
+    <header class="navbar">
+        <nav id="headerNav">
+            <ul id="navList">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="increase-salaries.html" class="active">Increase Salaries</a></li>
+                <li><a href="categorized-movies.html">Categorize Movies</a></li>
+                <li><a href="recent-shows.html">Recent Shows</a></li>
+                <li><a href="update-awards.html">Update Awards</a></li>
+                <li><a href="raw-tuples.html">See Raw Data</a></li>
+                <li><a href="add-tuples.html">Add Tuples</a></li>
+                <li><a href="graph-movies.html">Movie Revenue</a></li>
+                <li><a href="graph-tickets.html">Rating vs Tickets</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="form-card">
+            <h3>Add Customer</h3>
+            <form id="addCustomerForm">
+                <label for="customerFirstName">First Name:</label>
+                <input type="text" id="customerFirstName" required>
+                
+                <label for="customerLastName">Last Name:</label>
+                <input type="text" id="customerLastName" required>
+                
+                <label for="customerEmail">Email:</label>
+                <input type="email" id="customerEmail" required>
+                
+                <label for="customerPhone">Phone Number:</label>
+                <input type="text" id="customerPhone" required>
+                
+                <button type="button" onclick="addCustomer()">Add Customer</button>
+            </form>
+        </div>
+    
+        <div class="form-card">
+            <h3>Add Movie</h3>
+            <form id="addMovieForm">
+                <label for="movieName">Movie Name:</label>
+                <input type="text" id="movieName" required>
+                
+                <label for="movieDescription">Description:</label>
+                <textarea id="movieDescription" required></textarea>
+                
+                <label for="movieRating">Rating:</label>
+                <input type="number" step="0.1" id="movieRating" required>
+
+                <label for="movieAwards">Awards:</label>
+                <input type="text" id="movieAwards">
+
+                <button type="button" onclick="addMovie()">Add Movie</button>
+            </form>
+        </div>
+
+        <div class="form-card">
+            <h3>Add Theater</h3>
+            <form id="addTheaterForm">
+                <label for="theaterType">Theater Type:</label>
+                <input type="text" id="theaterType" required>
+                
+                <label for="theaterNumSeats">Number of Seats:</label>
+                <input type="number" id="theaterNumSeats" required>
+                
+                <label for="theaterDescription">Description:</label>
+                <textarea id="theaterDescription" required></textarea>
+
+                <button type="button" onclick="addTheater()">Add Theater</button>
+            </form>
+        </div>
+
+        <div class="form-card">
+            <h3>Add Cinema</h3>
+            <form id="addCinemaForm">
+                <label for="cinemaName">Cinema Name:</label>
+                <input type="text" id="cinemaName" required>
+                
+                <label for="cinemaLocation">Location:</label>
+                <input type="text" id="cinemaLocation" required>
+                
+                <label for="cinemaManagerID">Manager ID:</label>
+                <input type="text" id="cinemaManagerID" required>
+
+                <button type="button" onclick="addCinema()">Add Cinema</button>
+            </form>
+        </div>
+
+        <div class="form-card">
+            <h3>Add Staff</h3>
+            <form id="addStaffForm">
+                <label for="staffFirstName">First Name:</label>
+                <input type="text" id="staffFirstName" required>
+                
+                <label for="staffLastName">Last Name:</label>
+                <input type="text" id="staffLastName" required>
+                
+                <label for="staffDateOfBirth">Date of Birth:</label>
+                <input type="date" id="staffDateOfBirth" required>
+                
+                <label for="staffSalary">Salary:</label>
+                <input type="number" id="staffSalary" required>
+
+                <label for="staffPosition">Position:</label>
+                <input type="text" id="staffPosition" required>
+
+                <label for="staffCinemaID">Cinema ID:</label>
+                <input type="text" id="staffCinemaID" required>
+
+                <button type="button" onclick="addStaff()">Add Staff</button>
+            </form>
+        </div>
+
+        <div class="form-card">
+            <h3>Add Showing</h3>
+            <form id="addShowingForm">
+                <label for="showingTime">Show Time:</label>
+                <input type="time" id="showingTime" required>
+                
+                <label for="showingDate">Show Date:</label>
+                <input type="date" id="showingDate" required>
+                
+                <label for="showingCinemaID">Cinema ID:</label>
+                <input type="text" id="showingCinemaID" required>
+
+                <label for="showingTheaterID">Theater ID:</label>
+                <input type="text" id="showingTheaterID" required>
+
+                <label for="showingMovieID">Movie ID:</label>
+                <input type="text" id="showingMovieID" required>
+
+                <button type="button" onclick="addShowing()">Add Showing</button>
+            </form>
+        </div>
+
+        <div class="form-card">
+            <h3>Add Ticket</h3>
+            <form id="addTicketForm">
+                <label for="ticketCustomerID">Customer ID:</label>
+                <input type="text" id="ticketCustomerID" required>
+                
+                <label for="ticketShowID">Show ID:</label>
+                <input type="text" id="ticketShowID" required>
+                
+                <label for="ticketPrice">Ticket Price:</label>
+                <input type="number" step="0.01" id="ticketPrice" required>
+
+                <button type="button" onclick="addTicket()">Add Ticket</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="../js/add-tuples.js"></script>
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

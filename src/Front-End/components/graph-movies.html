@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/graph-movies.css">
+    <title>Movie Revenue</title>
+</head>
+<body>
+    <header class="navbar">
+        <nav id="headerNav">
+            <ul id="navList">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="increase-salaries.html" class="active">Increase Salaries</a></li>
+                <li><a href="categorized-movies.html">Categorize Movies</a></li>
+                <li><a href="recent-shows.html">Recent Shows</a></li>
+                <li><a href="update-awards.html">Update Awards</a></li>
+                <li><a href="raw-tuples.html">See Raw Data</a></li>
+                <li><a href="add-tuples.html">Add Tuples</a></li>
+                <li><a href="graph-movies.html">Movie Revenue</a></li>
+                <li><a href="graph-tickets.html">Rating vs Tickets</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="main">
+            <h1>Get a Graph of Total Revenue for Movie</h1>
+            <div id="searchForm">
+                <label for="movieID">Enter Movie ID:</label>
+                <input type="text" id="movieID" name="movieID" placeholder="Movie ID">
+                <button onclick="searchMovies()">Search</button>
+            </div>
+        </div>
+
+        <div id="chartContainer">
+            <h2 id="chartName"></h2>
+            <div id="chart">
+                <canvas id="revenueChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/graph-movies.js"></script>
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

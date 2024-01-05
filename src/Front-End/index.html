@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>SE 3309 Lab 4</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="navList">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="components/increase-salaries.html" class="active">Increase Salaries</a></li>
+                <li><a href="components/categorized-movies.html">Categorize Movies</a></li>
+                <li><a href="components/recent-shows.html">Recent Shows</a></li>
+                <li><a href="components/update-awards.html">Update Awards</a></li>
+                <li><a href="components/raw-tuples.html">See Raw Data</a></li>
+                <li><a href="components/add-tuples.html">Add Tuples</a></li>
+                <li><a href="components/graph-movies.html">Movie Revenue</a></li>
+                <li><a href="components/graph-tickets.html">Rating vs Tickets</a></li>
+            </ul>
+        </nav>
+    </header>    
+
+    <div class="main-container">
+        <h1>SE 3309 Lab 4</h1>
+        <p>Maddy Gander, Kenan Granulo, Nikola Kovacevic, Cooper Perron, Liam Yoell</p>
+        <p>As outlined in Lab 4, we have built a comprehensive Web Interface to the SQL database application for our movie data. </p>
+        <p>The system will prompt user input, access the SQL DB and then display all of the results</p>
+        <h2>SQL Queries</h2>
+    </div>
+    
+    <div class="container">
+        <div class="sql-card">
+            <h4>Get all customers with their details and phone numbers</h4>
+            <p>
+                SELECT c.customerID, c.fName, c.lName, c.email, p.phoneNo
+                FROM customer c
+                LEFT JOIN PhoneNumber p ON c.customerID = p.customerID;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get all movies</h4>
+            <p>
+                SELECT * FROM Movie;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get all theaters</h4>
+            <p>
+                SELECT * FROM Theater;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get all cinemas</h4>
+            <p>
+                SELECT * FROM Cinema;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get all staff members</h4>
+            <p>
+                SELECT * FROM Staff;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get all showings</h4>
+            <p>
+                SELECT * FROM Showing;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get all tickets</h4>
+            <p>
+                SELECT * FROM Ticket;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get the maximum customer ID</h4>
+            <p>
+                SELECT MAX(customerID) as maxCustomerId FROM customer;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Create a new customer</h4>
+            <p>
+                INSERT INTO customer (customerID, fName, lName, email) VALUES (?, ?, ?, ?);
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Create a new phone number for a customer</h4>
+            <p>
+                INSERT INTO PhoneNumber (phoneNo, customerID) VALUES (?, ?);
+            </p>
+        </div>
+        <div class="sql-card">
+            <h4>Find the max movie ID and return the next id to use</h4>
+            <p>
+                SELECT RIGHT('0000000' + CONVERT(MAX(CAST(SUBSTRING(movieID, 3) AS SIGNED)) + 1, CHAR), 7) AS next_movie_number
+                FROM Movie
+                WHERE movieID LIKE 'tt%'
+                AND SUBSTRING(movieID, 3, 7) REGEXP '^[0-9]+$';
+            </p>
+        </div>
+        <div class="sql-card">
+            <h4>Create a new movie</h4>
+            <p>
+                INSERT INTO Movie (movieID, movieName, description, rating, awards) VALUES (?, ?, ?, ?, ?);
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get the maximum theater ID</h4>
+            <p>
+                SELECT MAX(theaterID) AS maxTheaterId FROM Theater;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Create a new theater</h4>
+            <p>
+                INSERT INTO Theater (theaterID, type, numSeats, description) VALUES (?, ?, ?, ?);
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get the maximum cinema ID</h4>
+            <p>
+                SELECT MAX(cinemaID) AS maxCinemaId FROM Cinema;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Create a new cinema</h4>
+            <p>
+                INSERT INTO Cinema (cinemaID, cinemaName, location, managerID) VALUES (?, ?, ?, ?);
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Check if a staff member with a specific ID is a manager</h4>
+            <p>
+                SELECT * FROM Staff WHERE staffID = ? AND position = "Manager";
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get the cinema ID assigned to a manager</h4>
+            <p>
+                SELECT cinemaID FROM Cinema WHERE managerID = ?;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Update the cinema ID for a staff member</h4>
+            <p>
+                UPDATE Staff SET cinemaID = ? WHERE staffID = ?;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Check if a cinema with a specific ID exists</h4>
+            <p>
+                SELECT * FROM Cinema WHERE cinemaID = ?;
+            </p>
+        </div>
+        <div class="sql-card">
+            <h4>Check if a customer with a specific ID exists</h4>
+            <p>
+                SELECT * FROM Customer WHERE customerID = ?;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Check if a showing with a specific ID exists</h4>
+            <p>
+                SELECT * FROM Showing WHERE showID = ?;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get the theater ID and number of seats for a showing</h4>
+            <p>
+                SELECT s.theaterID, t.numSeats FROM Showing s JOIN Theater t ON s.theaterID = t.theaterID WHERE s.showID = ?;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get the number of tickets for a showing</h4>
+            <p>
+                SELECT COUNT(*) AS numTickets FROM Ticket WHERE showID = ?;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Get the maximum ticket ID</h4>
+            <p>
+                SELECT MAX(ticketID) AS maxTicketId FROM Ticket;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Create a new ticket</h4>
+            <p>
+                INSERT INTO Ticket (ticketID, customerID, seatNo, price, showID) VALUES (?, ?, ?, ?, ?);
+            </p>
+        </div>
+        
+        <!-- Complex Functionalities -->
+        
+        <div class="sql-card">
+            <h4>Update salaries for staff members based on a percentage increase and cinema ID</h4>
+            <p>
+                UPDATE Staff
+                SET salary = 
+                    CASE
+                        WHEN position = 'Manager' THEN ROUND(salary * (1 + ${X}/100 * 1.2), 2)
+                        WHEN position = 'Custodian' THEN ROUND(salary * (1 + ${X}/100 * 1.1), 2)
+                        WHEN position = 'Sales' THEN ROUND(salary * (1 + ${X}/100), 2)
+                    END
+                WHERE cinemaID = ${cinemaID};
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Find recent shows with cinema names, movie names, and show dates</h4>
+            <p>
+                SELECT c.cinemaName, m.movieName, ranked.showDate
+                FROM (
+                    SELECT cinemaID, movieID, showDate,
+                        ROW_NUMBER() OVER (PARTITION BY cinemaID, movieID ORDER BY showDate DESC) as rn
+                    FROM Showing
+                ) AS ranked
+                JOIN Cinema c ON c.cinemaID = ranked.cinemaID
+                JOIN Movie m ON m.movieID = ranked.movieID
+                WHERE ranked.rn <= ${X}
+                ${movieName && movieName !== '' ? `AND m.movieName = '${movieName}'` : ''}
+                ${cinemaName && cinemaName !== '' ? `AND c.cinemaName = '${cinemaName}'` : ''};
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Categorize movies by rating</h4>
+            <p>
+                SELECT 
+                    movieName,
+                    CASE 
+                        WHEN rating >= 9.0 THEN 'Excellent'
+                        WHEN rating >= 8.5 THEN 'Good'
+                        ELSE 'Average'
+                    END AS RatingCategory
+                FROM 
+                    Movie
+                WHERE
+                    rating >= 8.0
+                ORDER BY
+                    rating DESC
+                LIMIT ${X};
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Update movie awards based on ticket sales</h4>
+            <p>
+                UPDATE Movie
+                SET awards = 
+                    CASE
+                        WHEN (
+                            SELECT SUM(T.price)
+                            FROM Ticket AS T
+                            JOIN Showing AS S ON T.showID = S.showID
+                            WHERE S.movieID = Movie.movieID
+                        ) > ${X} THEN 
+                            CASE 
+                                WHEN awards IS NOT NULL AND awards != '' THEN CONCAT(awards, ', ${awardName}')
+                                ELSE '${awardName}'
+                            END
+                        ELSE awards
+                    END;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Check if a movie has existing awards (helper query)</h4>
+            <p>
+                SELECT movieID FROM Movie WHERE awards LIKE ? OR awards LIKE ?;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Retrieve total revenue for each show date for a movie, to be used in graph</h4>
+            <p>
+                SELECT s.showDate, SUM(t.price) AS totalRevenue
+                FROM Showing s
+                JOIN Ticket t ON s.showID = t.showID
+                WHERE s.movieID = '${movieID}'
+                GROUP BY s.showDate
+                ORDER BY s.showDate;
+            </p>
+        </div>
+        
+        <div class="sql-card">
+            <h4>Retrieve average tickets sold by rating for all movies, optionally only from a certain show date onward</h4>
+            <p>
+                SELECT
+                    m.rating,
+                    AVG(ticket_count) AS avgTicketsSold
+                FROM
+                    Movie m
+                JOIN
+                    Showing s ON m.movieID = s.movieID
+                JOIN
+                    (SELECT
+                        t.showID,
+                        COUNT(t.ticketID) AS ticket_count
+                    FROM
+                        Ticket t
+                    GROUP BY
+                        t.showID) ticket_counts ON s.showID = ticket_counts.showID
+                WHERE
+                    s.showDate >= IFNULL('${showDate}', s.showDate)
+                GROUP BY
+                    m.rating
+                ORDER BY
+                    m.rating;
+            </p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+</html>
